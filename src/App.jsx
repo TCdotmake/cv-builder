@@ -1,27 +1,26 @@
-import { useState } from 'react'
-import './App.css'
-import Preview from './Preview';
-import Builder from './Builder';
-function App() {
-  const infoexample = {
-    name: 'Sarah Goode',
-    email: 'sarahgoode@example.com ',
-    phone: '555-555-0000'
-  }
-  const [info, setinfo] = useState({...infoexample});
+import { useState } from "react";
+import "./App.css";
+import Preview from "./Preview";
+import Builder from "./Builder";
+import { v4 as uuid } from "uuid";
 
-  function updateInfo(key, value){
-    setinfo({...info, [key]:value});
+import example from "./example";
+
+function App() {
+  const [info, setinfo] = useState({ ...example.info });
+
+  function updateInfo(key, value) {
+    setinfo({ ...info, [key]: value });
   }
+
+  const [edu, setedu] = useState({ ...example.edu });
 
   return (
-    
-      <main>
-        <Builder updateInfo={updateInfo}/>
-        <Preview cv={info}/>
-      </main>
-    
-  )
+    <main>
+      <Builder updateInfo={updateInfo} />
+      <Preview info={info} edu={edu} />
+    </main>
+  );
 }
 
-export default App
+export default App;
