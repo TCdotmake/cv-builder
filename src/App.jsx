@@ -14,11 +14,11 @@ function App() {
   }
 
   const [edu, setedu] = useState({ ...example.edu });
-
+  const [prof, setprof] = useState({ ...example.prof });
   return (
     <main>
       <Builder updateInfo={updateInfo} />
-      <Preview info={info} edu={edu} />
+      <Preview info={info} edu={edu} prof={prof} />
     </main>
   );
 }
