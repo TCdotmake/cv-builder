@@ -69,7 +69,7 @@ function InfoInputForm({ title, uid, data, handlers }) {
         )}
         <button onClick={handlers.delete}>Delete</button>
         <button onClick={handlers.cancel}>Cancel</button>
-        <button>Save</button>
+        <button onClick={handlers.save}>Save</button>
       </form>
     </div>
   );
@@ -106,6 +106,28 @@ function OtherInfoInput({ title, data, setter }) {
       setter((prev) => {
         const newState = { ...prev };
         delete newState[currentUid];
+        return newState;
+      });
+      setDisplayInput(false);
+      setDisplayBtn(true);
+    },
+    save(e) {
+      const parent = e.target.parentNode;
+      const inputs = parent.querySelectorAll("input");
+      const newEntry = {
+        place: inputs[0].value,
+        title: inputs[1].value,
+        start: inputs[2].value,
+        end: inputs[3].value,
+        location: inputs[4].value,
+      };
+      const details = parent.querySelector("textarea");
+      if (details) {
+        newEntry.details = details.value;
+      }
+      setter((prev) => {
+        const newState = { ...prev };
+        newState[currentUid] = { ...newEntry };
         return newState;
       });
       setDisplayInput(false);
