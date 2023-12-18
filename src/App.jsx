@@ -17,7 +17,7 @@ function App() {
   const [prof, setprof] = useState({ ...example.prof });
   return (
     <main>
-      <Builder updateInfo={updateInfo} />
+      <Builder updateInfo={updateInfo} edu={edu} prof={prof} />
       <Preview info={info} edu={edu} prof={prof} />
     </main>
   );
