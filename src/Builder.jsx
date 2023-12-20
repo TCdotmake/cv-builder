@@ -1,4 +1,5 @@
 import { GeneralInfoInput } from "./GeneralInfoInput";
+import { v4 as uuid } from "uuid";
 
 import { useState } from "react";
 
@@ -17,8 +18,8 @@ function InfoInputForm({ title, uid, data, handlers }) {
     ph1 = "Enter company name";
     ph2 = "Enter title/position";
   }
-  const source = data[uid];
-  console.log(source);
+  const source = data[uid] || {};
+
   return (
     <div>
       <form>
@@ -27,7 +28,7 @@ function InfoInputForm({ title, uid, data, handlers }) {
           type="text"
           id={place}
           placeholder={ph1}
-          defaultValue={source.place || null}
+          defaultValue={source.place || ""}
         ></input>
         <label htmlFor={position}>{position}</label>
         <input
@@ -83,6 +84,10 @@ function EditBtn({ source, evHandler, uid }) {
   );
 }
 
+function AddBtn({ handler }) {
+  return <button onClick={handler}>Add...</button>;
+}
+
 function OtherInfoInput({ title, data, setter }) {
   const [displayBtn, setDisplayBtn] = useState(false);
   function toggleBtnDisplay() {
@@ -92,15 +97,31 @@ function OtherInfoInput({ title, data, setter }) {
   }
   const [displayInput, setDisplayInput] = useState(false);
   const [currentUid, setCurrentUid] = useState(null);
-  function handleEdit(e) {
-    setCurrentUid(e.target.dataset.uid);
+
+  function btnView() {
+    setDisplayInput(false);
+    setDisplayBtn(true);
+  }
+  function inputView() {
     setDisplayBtn(false);
     setDisplayInput(true);
   }
+
+  function handleEdit(e) {
+    setCurrentUid(e.target.dataset.uid);
+    inputView();
+  }
+
+  function handleAdd() {
+    setCurrentUid(uuid());
+    inputView();
+  }
+
   const formHandlers = {
     cancel() {
-      setDisplayInput(false);
-      setDisplayBtn(true);
+      //   setDisplayInput(false);
+      //   setDisplayBtn(true);
+      btnView();
     },
     delete() {
       setter((prev) => {
@@ -108,8 +129,7 @@ function OtherInfoInput({ title, data, setter }) {
         delete newState[currentUid];
         return newState;
       });
-      setDisplayInput(false);
-      setDisplayBtn(true);
+      btnView();
     },
     save(e) {
       const parent = e.target.parentNode;
@@ -130,8 +150,7 @@ function OtherInfoInput({ title, data, setter }) {
         newState[currentUid] = { ...newEntry };
         return newState;
       });
-      setDisplayInput(false);
-      setDisplayBtn(true);
+      btnView();
     },
   };
   return (
@@ -159,6 +178,7 @@ function OtherInfoInput({ title, data, setter }) {
           handlers={formHandlers}
         />
       )}
+      {displayBtn && <AddBtn handler={handleAdd} />}
     </div>
   );
 }
