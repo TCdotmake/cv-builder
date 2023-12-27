@@ -7,13 +7,16 @@ import { flex, row, center, column } from "./flexstyle";
 const entrycss = css`
   width: 600px;
   color: #666;
-  margin: 0 3rem;
+  margin: 0 7rem;
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap 1rem; > * {
-    display: flex;
+  grid-template-columns: 3fr 7fr;
+  gap: 2rem;
+  > * {
+    gap: 0.5rem;
+    ${flex}
     ${column}
     ${center}
+    justify-content: start;
   }
 `;
 

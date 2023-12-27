@@ -7,8 +7,10 @@ import { center, column, flex } from "./flexstyle";
 const previewcss = css`
   background: white;
   color: #666;
-  padding: 2rem 0 6rem 0;
   aspect-ratio: 8.5/11;
+  > * {
+    margin-bottom: 2.5rem;
+  }
 `;
 
 function Preview({ info, edu, prof }) {
