@@ -18,9 +18,12 @@ export function OtherInfoInput({ title, data, setter }) {
   //switches for button view and input view
   const [displayBtn, setDisplayBtn] = useState(false);
   function toggleBtnDisplay() {
-    setDisplayBtn((state) => {
-      return !state;
-    });
+    if (displayInput) setDisplayInput(false);
+    else {
+      setDisplayBtn((state) => {
+        return !state;
+      });
+    }
   }
   const [displayInput, setDisplayInput] = useState(false);
   const [currentUid, setCurrentUid] = useState(null);

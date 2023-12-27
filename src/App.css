@@ -5,6 +5,14 @@
   text-align: center;
 }
 
+* {
+  border: 1px solid red;
+}
+
+body {
+  box-sizing: border-box;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
