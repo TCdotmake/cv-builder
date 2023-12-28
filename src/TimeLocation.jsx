@@ -2,10 +2,6 @@
 import { css } from "@emotion/react";
 import { center, column, flex } from "./flexstyle";
 const timecss = css`
-  ${flex}
-  ${column}
-  ${center}
-  font-size: 0.9rem;
   padding-left: 0;
   padding-right: 0;
 `;

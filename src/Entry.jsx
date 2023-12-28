@@ -9,14 +9,12 @@ const entrycss = css`
   color: #666;
   margin: 0 7rem;
   display: grid;
-  grid-template-columns: 3fr 7fr;
-  gap: 2rem;
+  grid-template-columns: 200px 300px;
+  justify-content: center;
+  gap: 1rem;
   > * {
-    gap: 0.5rem;
-    ${flex}
-    ${column}
-    ${center}
-    justify-content: start;
+  }
+  > *:firstchild {
   }
 `;
 
