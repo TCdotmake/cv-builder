@@ -6,6 +6,8 @@ const gencss = css`
   padding: 4rem 0;
   background: #b0b2b8;
   color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 `;
 
 const namecss = css`

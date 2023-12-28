@@ -1,3 +1,7 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { formcss, inputwindowcss } from "./formstyle";
+
 export function InfoInputForm({ title, uid, data, handlers }) {
   let prefix = "";
   let place = "School";
@@ -19,7 +23,7 @@ export function InfoInputForm({ title, uid, data, handlers }) {
   const source = data[uid] || {};
 
   return (
-    <div>
+    <div css={inputwindowcss}>
       <form>
         <label htmlFor={place}>{place}</label>
         <input
@@ -66,9 +70,11 @@ export function InfoInputForm({ title, uid, data, handlers }) {
             />
           </>
         )}
-        <button onClick={handlers.delete}>Delete</button>
-        <button onClick={handlers.cancel}>Cancel</button>
-        <button onClick={handlers.save}>Save</button>
+        <div>
+          <button onClick={handlers.delete}>Delete</button>
+          <button onClick={handlers.cancel}>Cancel</button>
+          <button onClick={handlers.save}>Save</button>
+        </div>
       </form>
     </div>
   );

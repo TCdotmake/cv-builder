@@ -1,6 +1,10 @@
 import { useState } from "react";
-
-export function GeneralInfoInput({ updateInfo }) {
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { titlebtn } from "./btn";
+import { center, column, flex, row } from "./flexstyle";
+import { formcss, inputwindowcss } from "./formstyle";
+export function GeneralInfoInput({ updateInfo, info }) {
   const handleChange = (e) => {
     updateInfo(e.target.id, e.target.value);
   };
@@ -12,33 +16,38 @@ export function GeneralInfoInput({ updateInfo }) {
   }
   return (
     <div>
-      <button onClick={toggleGeneral}>
+      <button css={titlebtn} onClick={toggleGeneral}>
         <h3>General Info</h3>
       </button>
       {displayGeneral && (
-        <form>
-          <label htmlFor="name">Full Name:</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter Full Name..."
-            onChange={handleChange}
-          />
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter Email..."
-            onChange={handleChange}
-          />
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Enter Phone Number..."
-            onChange={handleChange}
-          />
-        </form>
+        <div css={inputwindowcss}>
+          <form>
+            <label htmlFor="name">Full Name:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter Full Name..."
+              onChange={handleChange}
+              defaultValue={info.name || null}
+            />
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter Email..."
+              onChange={handleChange}
+              defaultValue={info.email || null}
+            />
+            <label htmlFor="phone">Phone:</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter Phone Number..."
+              onChange={handleChange}
+              defaultValue={info.phone || null}
+            />
+          </form>
+        </div>
       )}
     </div>
   );

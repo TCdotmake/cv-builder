@@ -7,8 +7,13 @@ import example from "./example";
 import { css } from "@emotion/react";
 
 const maincss = css`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  padding: 1rem 0;
+  > * {
+    border-radius: 5px;
+  }
 `;
 
 function App() {
@@ -26,6 +31,7 @@ function App() {
         updateInfo={updateInfo}
         edu={edu}
         prof={prof}
+        info={info}
         setedu={setedu}
         setprof={setprof}
       />

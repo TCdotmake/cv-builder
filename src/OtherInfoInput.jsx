@@ -1,18 +1,25 @@
 import { v4 as uuid } from "uuid";
 import { useState } from "react";
 import { InfoInputForm } from "./InfoInputForm";
-
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import { entrybtn, titlebtn } from "./btn";
+import { formcss } from "./formstyle";
 export function OtherInfoInput({ title, data, setter }) {
   //btn for adding/editing entries
   function EditBtn({ source, evHandler, uid }) {
     return (
-      <button onClick={evHandler} data-uid={uid}>
+      <button css={entrybtn} onClick={evHandler} data-uid={uid}>
         {source.place}
       </button>
     );
   }
   function AddBtn({ handler }) {
-    return <button onClick={handler}>Add...</button>;
+    return (
+      <button css={entrybtn} onClick={handler}>
+        Add...
+      </button>
+    );
   }
   //END btn for adding/editing entries
   //switches for button view and input view
@@ -83,7 +90,7 @@ export function OtherInfoInput({ title, data, setter }) {
   //END event handlers
   return (
     <div>
-      <button onClick={toggleBtnDisplay}>
+      <button css={titlebtn} onClick={toggleBtnDisplay}>
         <h3>{title}</h3>
       </button>
       {displayBtn &&
@@ -104,6 +111,9 @@ export function OtherInfoInput({ title, data, setter }) {
           uid={currentUid}
           data={data}
           handlers={formHandlers}
+          css={css`
+            width: 100%;
+          `}
         />
       )}
       {displayBtn && <AddBtn handler={handleAdd} />}
