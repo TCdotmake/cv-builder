@@ -11,6 +11,9 @@ const previewcss = css`
   > * {
     margin-bottom: 2.5rem;
   }
+  @media screen and (max-width: 950px) {
+    width: 360px;
+  }
 `;
 
 function Preview({ info, edu, prof }) {

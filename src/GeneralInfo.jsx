@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { flex, row, center, column } from "./flexstyle";
+import { screen400 } from "./responsive";
 
 const gencss = css`
   padding: 4rem 0;
@@ -16,9 +17,15 @@ const namecss = css`
 `;
 
 const divcss = css`
+  ${flex}
+  ${row}
+  ${center}
   gap: 2ch;
   > * {
     font-size: 1.2rem;
+  }
+  @media screen and (max-width: 950px) {
+    ${column}
   }
 `;
 
@@ -39,7 +46,7 @@ export function GeneralInfo({ info }) {
     <div css={(flex, column, center, gencss)}>
       <h3 className="hidden">General Info</h3>
       <h4 css={namecss}>{info.name}</h4>
-      <div css={[flex, row, center, divcss]}>
+      <div css={divcss}>
         <div css={contactcss}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

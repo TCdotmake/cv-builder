@@ -13,6 +13,9 @@ const containercss = css`
   justify-self: center;
   > * {
     margin-bottom: 10px;
+    @media screen and (max-width: 400px) {
+      width: 250px;
+    }
   }
 `;
 

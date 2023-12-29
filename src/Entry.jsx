@@ -12,9 +12,11 @@ const entrycss = css`
   grid-template-columns: 200px 300px;
   justify-content: center;
   gap: 1rem;
-  > * {
-  }
-  > *:firstchild {
+  @media screen and (max-width: 950px) {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: auto;
   }
 `;
 

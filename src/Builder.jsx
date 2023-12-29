@@ -10,11 +10,12 @@ const buildercss = css`
   ${flex}
   ${column}
   background: #b0b2b8;
-  padding-top: 4rem;
+  padding: 4rem 0;
   > * {
     ${flex}
     ${column}
     ${center}
+    gap: 1rem;
   }
 `;
 

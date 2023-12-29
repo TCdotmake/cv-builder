@@ -4,6 +4,13 @@ import { center, column, flex } from "./flexstyle";
 const timecss = css`
   padding-left: 0;
   padding-right: 0;
+  @media screen and (max-width: 950px) {
+    width: 250px;
+    margin-bottom: 1rem;
+    > p {
+      text-align: start;
+    }
+  }
 `;
 export function TimeLocation({ source }) {
   let time;
@@ -17,7 +24,7 @@ export function TimeLocation({ source }) {
   return (
     <div css={timecss}>
       <h4 className="hidden">Time and Location</h4>
-      {time}
+      <p>{time}</p>
       {source.location && <p>{source.location}</p>}
     </div>
   );
