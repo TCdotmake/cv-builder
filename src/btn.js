@@ -10,4 +10,22 @@ const entrybtn = css`
   margin-top: 10px;
 `;
 
-export { titlebtn, entrybtn };
+const tabBtn = css`
+  width: 180px;
+  margin-bottom: 0;
+  background: #7b7e88;
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+`;
+
+const selectedTab = css`
+  width: 180px;
+  margin-bottom: 0;
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--primary);
+`;
+
+export { titlebtn, entrybtn, tabBtn, selectedTab };

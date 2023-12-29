@@ -10,12 +10,15 @@ const buildercss = css`
   ${flex}
   ${column}
   background: #b0b2b8;
-  padding: 4rem 0;
+  padding: 2rem 0;
   > * {
     ${flex}
     ${column}
     ${center}
     gap: 1rem;
+  }
+  @media screen and (max-width: 739px) {
+    height: calc(100vh - 2rem);
   }
 `;
 
