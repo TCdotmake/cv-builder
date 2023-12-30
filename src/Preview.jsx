@@ -5,9 +5,9 @@ import { css } from "@emotion/react";
 import { center, column, flex } from "./flexstyle";
 
 const previewcss = css`
-  background: white;
-  color: #666;
-  aspect-ratio: 8.5/11;
+  background: var(--white);
+  color: var(--gray);
+  width: 720px;
   > * {
     margin-bottom: 2.5rem;
   }
@@ -18,7 +18,7 @@ const previewcss = css`
 
 function Preview({ info, edu, prof }) {
   return (
-    <section css={[flex, column, previewcss]}>
+    <section css={[flex, column, center, previewcss]}>
       <h2 className="hidden">Preview</h2>
       <GeneralInfo info={info} />
       <Details data={edu} title="Education" />

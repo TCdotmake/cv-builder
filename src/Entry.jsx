@@ -6,7 +6,6 @@ import { flex, row, center, column } from "./flexstyle";
 
 const entrycss = css`
   width: 600px;
-  color: #666;
   margin: 0 7rem;
   display: grid;
   grid-template-columns: 200px 300px;

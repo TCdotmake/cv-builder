@@ -1,12 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { flex, row, center, column } from "./flexstyle";
-import { screen400 } from "./responsive";
 
 const gencss = css`
+  width: 100%;
   padding: 2rem 0;
-  background: #b0b2b8;
-  color: white;
+  background: var(--primary);
+  color: var(--white);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   @media screen and (max-width: 739px) {
@@ -35,7 +35,7 @@ const divcss = css`
 
 const svgcss = css`
   > path {
-    fill: white;
+    fill: var(--white);
   }
 `;
 

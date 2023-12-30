@@ -1,11 +1,19 @@
+:root {
+  --primary: #8a95a5;
+  --light: #919fb4;
+  --black: #49516a;
+  --darker: #7b7e88;
+  --white: #f2f5ea;
+  --gray: #5d5f6d;
+  --graylight: #7c7f9d;
+  --red: #d79799;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
   font-size: 14px;
   box-sizing: border-box;
-  --primary: #b0b2b8;
-  --darker: #7b7e88;
 }
 
 * {
@@ -16,6 +24,7 @@
 
 body {
   box-sizing: border-box;
+  background: var(--gray);
 }
 
 h3 {

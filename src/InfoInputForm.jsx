@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { formcss, inputwindowcss } from "./formstyle";
+import { inputbtndiv } from "./btn";
 
 export function InfoInputForm({ title, uid, data, handlers }) {
   let prefix = "";
@@ -70,7 +71,7 @@ export function InfoInputForm({ title, uid, data, handlers }) {
             />
           </>
         )}
-        <div>
+        <div css={inputbtndiv}>
           <button onClick={handlers.delete}>Delete</button>
           <button onClick={handlers.cancel}>Cancel</button>
           <button onClick={handlers.save}>Save</button>

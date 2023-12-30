@@ -24,7 +24,7 @@ export function TimeLocation({ source }) {
   return (
     <div css={timecss}>
       <h4 className="hidden">Time and Location</h4>
-      <p>{time}</p>
+      {time}
       {source.location && <p>{source.location}</p>}
     </div>
   );

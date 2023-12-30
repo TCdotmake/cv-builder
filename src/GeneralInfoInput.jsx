@@ -22,7 +22,7 @@ export function GeneralInfoInput({ updateInfo, info }) {
       {displayGeneral && (
         <div css={inputwindowcss}>
           <form>
-            <label htmlFor="name">Full Name:</label>
+            <label htmlFor="name">Full Name</label>
             <input
               type="text"
               id="name"
@@ -30,7 +30,7 @@ export function GeneralInfoInput({ updateInfo, info }) {
               onChange={handleChange}
               defaultValue={info.name || null}
             />
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -38,7 +38,7 @@ export function GeneralInfoInput({ updateInfo, info }) {
               onChange={handleChange}
               defaultValue={info.email || null}
             />
-            <label htmlFor="phone">Phone:</label>
+            <label htmlFor="phone">Phone</label>
             <input
               type="tel"
               id="phone"

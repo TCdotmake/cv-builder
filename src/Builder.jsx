@@ -9,7 +9,7 @@ const buildercss = css`
   width: 360px;
   ${flex}
   ${column}
-  background: #b0b2b8;
+  background: var(--white);
   padding: 2rem 0;
   > * {
     ${flex}
@@ -18,7 +18,7 @@ const buildercss = css`
     gap: 1rem;
   }
   @media screen and (max-width: 739px) {
-    height: calc(100vh - 2rem);
+    min-height: calc(100vh - 3rem - 90px);
   }
 `;
 

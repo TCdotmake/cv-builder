@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import "./App.css";
 import Preview from "./Preview";
 import Builder from "./Builder";
 import example from "./example";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { center, column, flex, row } from "./flexstyle";
-import { screen400 } from "./responsive";
-import { selectedTab, tabBtn } from "./btn";
+import { center, column, flex } from "./flexstyle";
+import { tabBtn } from "./btn";
 
 const maincss = css`
+  margin: 1rem 0;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 20px;
-  padding: 1rem 0;
+  justify-content: space-around;
   > * {
     border-radius: 5px;
   }
@@ -28,11 +28,19 @@ const maincss = css`
     ${column}
     ${center}
     gap: 0;
-    > *:nth-child(2) {
+    > *:nth-of-type(2) {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
   }
+`;
+
+const headercss = css`
+  width: 100%;
+  height: 45px;
+  background: var(--white);
+  border-radius: 5px;
+  margin: 1rem 0;
 `;
 
 function App() {
@@ -73,36 +81,36 @@ function App() {
     handleMobileView();
   });
   return (
-    <main css={maincss}>
-      {tabs && (
-        <div>
-          <button
-            css={(builder && selectedTab) || tabBtn}
-            onClick={builderView}
-          >
-            Builder
-          </button>
-          <button
-            css={(preview && selectedTab) || tabBtn}
-            onClick={previewView}
-          >
-            Preview
-          </button>
-        </div>
-      )}
+    <>
+      <header css={headercss}>
+        <a>github</a>
+      </header>
+      <main css={maincss}>
+        {tabs && (
+          <div>
+            <button css={tabBtn} onClick={builderView}>
+              <h3>CV Builder</h3>
+            </button>
+            <button css={tabBtn} onClick={previewView}>
+              <h3>Preview</h3>
+            </button>
+          </div>
+        )}
 
-      {builder && (
-        <Builder
-          updateInfo={updateInfo}
-          edu={edu}
-          prof={prof}
-          info={info}
-          setedu={setedu}
-          setprof={setprof}
-        />
-      )}
-      {preview && <Preview info={info} edu={edu} prof={prof} />}
-    </main>
+        {builder && (
+          <Builder
+            id="builder"
+            updateInfo={updateInfo}
+            edu={edu}
+            prof={prof}
+            info={info}
+            setedu={setedu}
+            setprof={setprof}
+          />
+        )}
+        {preview && <Preview id="preview" info={info} edu={edu} prof={prof} />}
+      </main>
+    </>
   );
 }
 
