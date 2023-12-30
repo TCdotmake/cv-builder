@@ -1,13 +1,13 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Preview from "./Preview";
 import Builder from "./Builder";
 import example from "./example";
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { center, column, flex } from "./flexstyle";
+import { center, column, flex, row } from "./flexstyle";
 import { tabBtn } from "./btn";
-
+import logo from "./github-mark.png";
 const maincss = css`
   margin: 1rem 0;
   display: grid;
@@ -41,6 +41,25 @@ const headercss = css`
   background: var(--white);
   border-radius: 5px;
   margin: 1rem 0;
+  ${flex}
+  ${row}
+  ${center}
+  justify-content: flex-end;
+  padding: 0 3%;
+  gap: 0.5rem;
+  > h1 {
+    color: var(--red);
+    font-size: 1.5rem;
+  }
+`;
+
+const linkcss = css`
+  width: 40px;
+  height: 40px;
+  > * {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 function App() {
@@ -83,13 +102,27 @@ function App() {
   return (
     <>
       <header css={headercss}>
-        <a>github</a>
+        <h1>CV Builder</h1>
+        <a
+          css={(flex, row, center)}
+          href="https://github.com/TCdotmake/cv-builder"
+          target="_blank"
+        >
+          <img
+            css={css`
+              height: 30px;
+              width: 30px;
+            `}
+            src={logo}
+            alt="GitHub Logo"
+          />
+        </a>
       </header>
       <main css={maincss}>
         {tabs && (
           <div>
             <button css={tabBtn} onClick={builderView}>
-              <h3>CV Builder</h3>
+              <h3>Builder</h3>
             </button>
             <button css={tabBtn} onClick={previewView}>
               <h3>Preview</h3>
