@@ -8,6 +8,7 @@ const previewcss = css`
   background: var(--white);
   color: var(--gray);
   width: 720px;
+  justify-content: flex-start;
   > * {
     margin-bottom: 2.5rem;
   }
